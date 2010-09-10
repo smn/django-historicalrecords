@@ -1,0 +1,6 @@
+*.pyc
+*.db
+ve/
+build/
+pip-log.txt
+*.egg-info
