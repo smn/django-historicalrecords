@@ -9,7 +9,7 @@ setup(
     url = 'http://github.com/smn/django-historicalrecords',
     license = 'BSD',
     description = "Marty Alchin's HistoricalRecords from the ProDjango book.",
-    long_description = open('README.rst','r').read()
+    long_description = open('README.rst','r').read(),
     author = 'Marty Alchin',
     packages = find_packages('src'),
     package_dir = {'': 'src'},
