@@ -1,16 +1,25 @@
 Django Historical Records
 =========================
 
-This is from Marty Alchin's [Pro Django](http://prodjango.com/) book.
+This is from Marty Alchin's `Pro Django`_ book.
 
 Setup the virtualenv
+
+::
 
     $ virtualenv --no-site-packages ve
     $ source ve/bin/activate
     (ve)$ pip install -r requirements.pip
     
+Or install from PyPI
+
+::
+
+    $ pip install django-historicalrecords
 
 Import the HistoricalRecords and attach it to your model like you would a custom Django manager.
+
+::
 
     from django.db import models
     from history.models import HistoricalRecords
@@ -31,6 +40,8 @@ Import the HistoricalRecords and attach it to your model like you would a custom
 
 If you run `manage.py syncdb` you'll see that it automatically creates a `Historical` version of whatever model you've attached it to.
 
+::
+
     (ve)$ ./manage.py syncdb
     Creating table auth_permission
     ... // snip // ...
@@ -39,6 +50,8 @@ If you run `manage.py syncdb` you'll see that it automatically creates a `Histor
     ... // snip // ...
 
 The `HistoricalRecords` clone the model it is attached to and adds some extra fields that allow you to track the type of change made, the timestamp of when the change was saved and it has a descriptor that will return the original object at the time of the change.
+
+::
 
     (ve)$ ./manage.py shell
     >>> from example_app.models import TestModel
@@ -70,3 +83,4 @@ The `HistoricalRecords` clone the model it is attached to and adds some extra fi
     'def'
     >>> 
     
+.. _Pro Django: http://prodjango.com
