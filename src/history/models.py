@@ -1,5 +1,9 @@
 import copy
-import datetime
+
+try:
+    from django.utils import timezone as datetime
+except:
+    from datetime import datetime as datetime
 
 from django.db import models
 
@@ -67,7 +71,7 @@ class HistoricalRecords(object):
         rel_nm = '_%s_history' % model._meta.object_name.lower()
         return {
             'history_id': models.AutoField(primary_key=True),
-            'history_date': models.DateTimeField(default=datetime.datetime.now),
+            'history_date': models.DateTimeField(default=datetime.now()),
             'history_type': models.CharField(max_length=1, choices=(
                 ('+', 'Created'),
                 ('~', 'Changed'),
